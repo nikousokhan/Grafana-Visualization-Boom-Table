@@ -1,0 +1,35 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+#  - job_name: 'libvert-exporter'
+#    scrape_interval: 5s
+#    static_configs:
+#      - targets: ['localhost:9177']
+
+#  - job_name: 'libvert-exporter2'
+#    scrape_interval: 5s
+#    static_configs:
+#      - targets: ['localhost:9000']
+
+#  - job_name: 'collectd-exporter2'
+#    scrape_interval: 5s
+#    static_configs:
+#      - targets: ['172.16.76.116:9103']
+
+  - job_name: 'netdata'
+    metrics_path: '/api/v1/allmetrics'
+    params:
+      # format: prometheus | prometheus_all_hosts
+      # You can use `prometheus_all_hosts` if you want Prometheus to set the `instance` to your hostname instead of IP
+      format: [prometheus_all_hosts]
+      #sources: as-collected | raw | average | sum | volume
+      # default is: average
+      #source: [raw]
+      #
+      # server name for this prometheus - the default is the client IP
+      # for Netdata to uniquely identify it
+      #server: ['prometheus1']
+    honor_labels: true
+    static_configs:
+      - targets: ['{your.netdata.ip}:19999']
