@@ -1,5 +1,5 @@
 # Netdata-Central-with-Promethues-Grafana
-Run Netdata Central and intgrated Promethues &amp; Grafana ( Panel Boom Table)
+Run Netdata Central and integrated Promethues &amp; Grafana ( Panel Boom Table)
 
 Netdata is a centralized tool and has a huge impact on reducing resource in operating nodes. see
 
@@ -28,7 +28,7 @@ Integrated Netdata central with Prometheus and Grafana (Plugin Boom Table)
 
 1) vim /etc/Prometheus/Prometheus.yml
 
-Add line below scrape_configs
+**Add line below scrape_configs**
 
 
     job_name: 'netdata-scrape'
@@ -44,12 +44,6 @@ Add line below scrape_configs
       static_configs:
 
         targets: ['{your.netdata.ip}:19999'] 
-
-
-
-
-
-
 
 
 
